@@ -85,32 +85,29 @@ def Load_excel_data():
     for row in df_rows:
         tv1.insert("", "end", values=row) 
 
-    
+#processing function
+# def helloCallBack():
+#     tkinter.messagebox.showinfo( 'info',"processing")
 
-#function for main.py intergeration
+
 
 def helloCallBack():
-    messagebox.askquestion("Info panel", "Are you sure?")
-    os.system('main.py')
-    messagebox.showinfo("Info","processing ...")
-button11 = tk.Button(root, text ="RUN", command = helloCallBack)
+    gg = messagebox.askquestion("Info panel", "Are you sure want to continue?")
+    if gg=='no':
+        root.destroy()
+    else:
+        os.system('main.py')
+        messagebox.showinfo("Info","completed sucessfully")
+button11 = tk.Button(root, text ="RUN",command = helloCallBack)
 button11.place(x=25, y=410)
-
-
-# def helloCallBack():
-#     messagebox.askquestion("askquestion", "Are you sure?")
-#     print("hello")
-#     messagebox.showinfo("Info","processing...")
-# button11 = tk.Button(root, text ="RUN", command = helloCallBack)
-# button11.place(x=25, y=410)
-
 
 
 # Button for closing 
 def Close(): 
     root.destroy() 
-exit_button = tk.Button(root, text="QUIT", width=4, height=2 ,command=Close) 
+exit_button = tk.Button(root, text="QUIT", bg="red" , width=4, height=2 ,command=Close) 
 exit_button.place(x=440 ,y=410)
+
 
 #data clear form 
 def clear_data():
